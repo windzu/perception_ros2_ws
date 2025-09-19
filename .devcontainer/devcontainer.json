@@ -1,0 +1,48 @@
+{
+    "name": "ROS2 Perception",
+    // 告诉 devcontainer 使用我们的 Dockerfile
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".",
+        // --- 核心：传递构建参数 ---
+        "args": {
+            // "localEnv:UID:1000" 会尝试读取宿主机的 $UID 环境变量
+            // 如果找不到，就默认使用 1000
+            "USER_UID": "${localEnv:UID:1000}",
+            "USER_GID": "${localEnv:GID:1000}",
+            "USERNAME": "ros"
+        }
+    },
+    // 告诉 VS Code 启动容器后以 "ros" 用户身份登录
+    "remoteUser": "ros",
+    // --- 其他配置 (与上一条回复相同) ---
+    "workspaceFolder": "/workspace",
+    "workspaceMount": "source=${localWorkspaceFolder}/,target=/workspace,type=bind,consistency=cached",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "esbenp.prettier-vscode",
+                "ms-python.black-formatter",
+                "ms-vscode.cpptools",
+                "ms-vscode.cmake-tools",
+                "ms-azuretools.vscode-docker",
+                "dotjoshjohnson.xml",
+                "smilerobotics.urdf",
+                "ms-iot.vscode-ros",
+                "azurity.pcd-viewer"
+            ],
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash"
+            }
+        }
+    },
+    "runArgs": [
+        "--gpus=all",
+        "--env=DISPLAY=${env:DISPLAY}",
+        "--volume=/tmp/.X11-unix:/tmp/.X11-unix",
+        "--net=host"
+    ]
+    // "postCreateCommand": "bash /home/ros/autonomy_ws/docker/build.sh"
+}
