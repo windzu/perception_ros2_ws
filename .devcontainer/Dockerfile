@@ -1,5 +1,9 @@
 # 1. 基于你选择的 NVIDIA 基础镜像
-FROM nvcr.io/nvidia/tensorrt:23.10-py3
+# CUDA12.2 TensorRT8.6 CUDNN8.9
+# FROM nvcr.io/nvidia/tensorrt:23.10-py3 
+
+# CUDA12.6 TensorRT10.3 CUDNN9.3
+FROM nvcr.io/nvidia/tensorrt:24.08-py3 
 
 # 设置环境变量，防止 apt-get 交互式弹窗
 ENV DEBIAN_FRONTEND=noninteractive
