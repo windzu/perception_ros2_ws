@@ -37,7 +37,8 @@ RUN apt-get update && apt-get install -y \
 RUN apt-get update && apt-get install -y \
     bash-completion \
     libcgal-dev \
-    python3-vcstool
+    python3-vcstool \
+    ansible
 
 # 7. 安装其他常用 ROS 2 包（根据需要添加）
 RUN apt-get update && apt-get install -y \
@@ -76,8 +77,9 @@ RUN useradd --uid $USER_UID --gid $USER_GID -m -s /bin/bash $USERNAME
 RUN echo "$USERNAME ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/$USERNAME
 RUN chmod 0440 /etc/sudoers.d/$USERNAME
 
-# 忽略一些路径
+# Fix /opt/hpcx CMake issue
 ENV CMAKE_IGNORE_PREFIX_PATH="/opt/hpcx"
+RUN mv /opt/hpcx /opt/hpcx_BROKEN
 
 # (可选) 授予对 video/audio 设备的访问权限
 RUN usermod -aG video $USERNAME

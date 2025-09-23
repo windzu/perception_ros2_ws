@@ -1,0 +1,58 @@
+repositories:
+  # core
+  core/autoware_msgs:
+    type: git
+    url: https://github.com/autowarefoundation/autoware_msgs.git
+    version: 1.10.0
+  core/autoware_adapi_msgs:
+    type: git
+    url: https://github.com/autowarefoundation/autoware_adapi_msgs.git
+    version: 1.9.0
+  core/autoware_internal_msgs:
+    type: git
+    url: https://github.com/autowarefoundation/autoware_internal_msgs.git
+    version: 1.12.0
+  core/autoware_cmake:
+    type: git
+    url: https://github.com/autowarefoundation/autoware_cmake.git
+    version: 1.0.2
+  core/autoware_utils:
+    type: git
+    url: https://github.com/autowarefoundation/autoware_utils.git
+    version: 1.4.2
+  core/autoware_lanelet2_extension:
+    type: git
+    url: https://github.com/autowarefoundation/autoware_lanelet2_extension.git
+    version: 0.9.0
+  core/autoware_core:
+    type: git
+    url: https://github.com/autowarefoundation/autoware_core.git
+    version: 1.4.0
+  core/autoware_rviz_plugins:
+    type: git
+    url: https://github.com/autowarefoundation/autoware_rviz_plugins.git
+    version: 0.2.0
+  universe/external/managed_transform_buffer:
+    type: git
+    url: https://github.com/autowarefoundation/managed_transform_buffer.git
+    version: 0.1.0
+  universe/external/cuda_blackboard:
+    type: git
+    url: https://github.com/autowarefoundation/cuda_blackboard.git
+    version: v0.2.0
+  universe/external/negotiated:
+    type: git
+    url: https://github.com/osrf/negotiated.git
+    version: eac198b55dcd052af5988f0f174902913c5f20e7
+  universe/external/tier4_autoware_msgs:
+    type: git
+    url: https://github.com/tier4/tier4_autoware_msgs.git
+    version: v0.51.0
+  # launcher
+  launcher/autoware_launch:
+    type: git
+    url: https://github.com/autowarefoundation/autoware_launch.git
+    version: 0.47.0
+
+
+
