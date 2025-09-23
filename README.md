@@ -37,13 +37,22 @@ This repository contains ROS2 packages for perception tasks, including object de
 
 ## Quick Start
 
-1. Launch the perception node
+1. Download Test Data :
+   - [split_0.db3](https://drive.google.com/file/d/15-4uEJsEA4ktmRTRPixH8p4PPnRrDxLO/view?usp=drive_link)
+   - Place it in `/workspace/autoware_data/test_20240930_134039` directory
+   - Test Data Introduction: [Link](https://autowarefoundation.github.io/autoware-documentation/main/datasets/),raw bag size is about 60GB, i split it into 2GB files for easy download
+2. Launch the perception node
    ```bash
-   ros2 launch perception_ros2 perception_launch.py
+   ros2 launch autoware_ground_segmentation scan_ground_filter.launch.xml
+   ros2 launch autoware_euclidean_cluster euclidean_cluster.launch.xml
    ```
-2. Use RViz2 to visualize the results
+3. Play the test data
    ```bash
-   rviz2 -d `ros2 pkg prefix perception_ros2`/share/perception_ros2/rviz/perception.rviz
+   ros2 bag play /workspace/autoware_data/test_20240930_134039/split_0.db3 --remap /pandar_points:=/sensing/lidar/concatenated/pointcloud --clock
+   ```
+4. Use RViz2 to visualize the results
+   ```bash
+   ros2 run rviz2 rviz2 -d /workspace/rviz/perception_demo.rviz
    ```
 
 # Known Issues
@@ -69,8 +78,3 @@ This repository contains ROS2 packages for perception tasks, including object de
       ```
     - Reference:
       - https://github.com/orgs/autowarefoundation/discussions/6417
-- /opt/hpcx is broken
-  - Solution:
-    ```bash
-    sudo mv /opt/hpcx /opt/hpcx_BROKEN
-    ```
