@@ -59,7 +59,6 @@ This repository contains ROS2 packages for perception tasks, including object de
 
 - Unknown CMake command "add_launch_test".
   - Known Issues Nodes:
-    - core/autoware_core/api/autoware_default_adapi
     - core/autoware_core/localization/autoware_ekf_localizer
     - core/autoware_core/localization/autoware_ndt_scan_matcher
     - core/autoware_core/map/autoware_lanelet2_map_visualizer
